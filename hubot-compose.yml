@@ -1,0 +1,13 @@
+version: '2'
+services:
+  hubot:
+    environment:
+      - HUBOT_NAME
+      - HUBOT_SLACK_TOKEN
+    build:
+      context: .
+      dockerfile: hubot.dockerfile
+#    links:
+#      - redis
+#  redis:
+#    image: redis
