@@ -1,6 +1,7 @@
 # Hubot Docker in Raspbian
 
-主にRaspbian上でDocker越しにHubotを動作させるためのサンプルプロジェクトです。
+主にRaspbian上でDocker越しにHubotを動作させるためのサンプルプロジェクトです。  
+なお、slack上で利用することを前提としています。
 
 ## Raspbianの初期設定（Docker環境構築）について
 
