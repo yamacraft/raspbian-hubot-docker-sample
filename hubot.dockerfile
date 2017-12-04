@@ -1,4 +1,4 @@
-FROM node:6.11-alpine
+FROM node:8-alpine
 
 RUN apk update && apk upgrade
 
@@ -13,13 +13,5 @@ WORKDIR /hubot
 
 ARG HUBOT_NAME=rasbot
 ARG HUBOT_SLACK_TOKEN=xxxxxxxxxx
-
-# Create hubot
-RUN yo hubot --defaults --name=$HUBOT_NAME --adapter slack
-ADD ./hubot/package.json package.json
-ADD ./hubot/external-scripts.json external-scripts.json
-
-# copy scripts
-ADD ./hubot/scripts/*.coffee scripts/
 
 CMD bin/hubot --adapter slack

@@ -7,7 +7,5 @@ services:
     build:
       context: .
       dockerfile: hubot.dockerfile
-#    links:
-#      - redis
-#  redis:
-#    image: redis
+    volumes:
+      - ./hubot:/hubot
