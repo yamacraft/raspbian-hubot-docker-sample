@@ -14,12 +14,28 @@
 `/hubot` の中身が空であることを前提としています。
 つまりこのリポジトリは、既にそれが済んでいます。
 
+### Dockerfileの修正
+
+yo（yoeman）がrootユーザーでは使えないため、一時的にユーザーを生成する必要があります
+
+```
+#hubot.dockerfile
+
+# この２行を追加
+RUN adduser -h /hubot -s /bin/bash -S hubot
+USER hubot
+
+WORKDIR /hubot
+```
+
 ```
 $ docker-compose -f ./hubot-compose.yml build
 $ docker-compose -f ./hubot-compose.yml run --rm hubot yo --no-insight hubot --defaults --name=rasbot --adapter slack
 ```
 
 hubotの名前やdescriptionなどは、好きなように引数で設定してください。
+
+完了したら、hubot.dockerfileのユーザー作成と切り替え部分は削除してください。
 
 ## Hubotの実行
 
